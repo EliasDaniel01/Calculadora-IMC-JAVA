@@ -1,61 +1,42 @@
-# 🧮 Calculadora Básica em Java
+# 🧮 Calculadora de IMC em Java
 
-Este é um projeto simples de uma **calculadora básica** desenvolvida em Java. O objetivo principal é servir como laboratório de testes e aprendizado, praticando conceitos fundamentais da linguagem.
+Este projeto é uma calculadora simples de IMC (**Índice de Massa Corporal**) desenvolvida em Java, ideal para testes e aprendizado.
 
 ## ✨ Funcionalidades
 
-- Soma
-- Subtração
-- Multiplicação
-- Divisão
+- Calcula o IMC a partir do peso e altura informados pelo usuário.
+- Informa a faixa de classificação do IMC (baixo peso, normal, sobrepeso, obesidade).
 
 ## 📋 Exemplo de código
 
 ```java
 import java.util.Scanner;
 
-public class CalculadoraBasica {
+public class CalculadoraIMC {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("=== Calculadora Básica ===");
-        System.out.print("Digite o primeiro número: ");
-        double num1 = scanner.nextDouble();
+        System.out.println("=== Calculadora de IMC ===");
+        System.out.print("Digite seu peso (kg): ");
+        double peso = scanner.nextDouble();
 
-        System.out.print("Digite o operador (+, -, *, /): ");
-        char operador = scanner.next().charAt(0);
+        System.out.print("Digite sua altura (m): ");
+        double altura = scanner.nextDouble();
 
-        System.out.print("Digite o segundo número: ");
-        double num2 = scanner.nextDouble();
+        double imc = peso / (altura * altura);
 
-        double resultado;
+        System.out.printf("Seu IMC é: %.2f\n", imc);
 
-        switch (operador) {
-            case '+':
-                resultado = num1 + num2;
-                break;
-            case '-':
-                resultado = num1 - num2;
-                break;
-            case '*':
-                resultado = num1 * num2;
-                break;
-            case '/':
-                if (num2 != 0) {
-                    resultado = num1 / num2;
-                } else {
-                    System.out.println("Erro: Divisão por zero!");
-                    scanner.close();
-                    return;
-                }
-                break;
-            default:
-                System.out.println("Operador inválido!");
-                scanner.close();
-                return;
+        if (imc < 18.5) {
+            System.out.println("Classificação: Baixo peso");
+        } else if (imc < 25) {
+            System.out.println("Classificação: Peso normal");
+        } else if (imc < 30) {
+            System.out.println("Classificação: Sobrepeso");
+        } else {
+            System.out.println("Classificação: Obesidade");
         }
 
-        System.out.println("Resultado: " + resultado);
         scanner.close();
     }
 }
@@ -63,14 +44,14 @@ public class CalculadoraBasica {
 
 ## 🚀 Como executar
 
-1. Copie o código acima em um arquivo chamado `CalculadoraBasica.java`.
+1. Copie o código acima em um arquivo chamado `CalculadoraIMC.java`.
 2. Compile o arquivo:
    ```
-   javac CalculadoraBasica.java
+   javac CalculadoraIMC.java
    ```
 3. Execute o programa:
    ```
-   java CalculadoraBasica
+   java CalculadoraIMC
    ```
 
 ## 🛠️ Requisitos
